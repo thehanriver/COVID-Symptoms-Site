@@ -1,7 +1,6 @@
 import firebase from 'firebase';
 
-// Your web app's Firebase configuration
-  const config = {
+  var firebaseConfig = {
     apiKey: "AIzaSyBE-JpKqfubFYpOKX_sMNtaKLYGWS7gk5o",
     authDomain: "my-a-4c395.firebaseapp.com",
     databaseURL: "https://my-a-4c395.firebaseio.com",
@@ -10,7 +9,8 @@ import firebase from 'firebase';
     messagingSenderId: "503489561455",
     appId: "1:503489561455:web:aae8295783598933501e9a"
   };
-  // Initialize Firebase
-	
-  const fire = firebase.initializeApp(config);
+
+  
+  const fire = firebase.initializeApp(firebaseConfig);
+
   export default fire;

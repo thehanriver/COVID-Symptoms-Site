@@ -1,65 +1,107 @@
-import React, { Component } from 'react';
+import React, { useState,useEffect } from "react";
 import './App.css';
-import StyledFireBaseAuth from "react-firebaseui/StyledFirebaseAuth"
-import firebase from "firebase"
+import StyledFireBaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import fire from "./firebase";
+import Login from "./Components/Login";
+import Home from "./Components/Home";
+import "firebase/auth";
 
-firebase.initializeApp({
-    apiKey: "AIzaSyBE-JpKqfubFYpOKX_sMNtaKLYGWS7gk5o",
-    authDomain: "my-a-4c395.firebaseapp.com",
-    databaseURL: "https://my-a-4c395.firebaseio.com",
-    projectId: "my-a-4c395",
-    storageBucket: "my-a-4c395.appspot.com",
-    messagingSenderId: "503489561455",
-    appId: "1:503489561455:web:aae8295783598933501e9a"
-})
+const App = () => {
+	const [user,setUser] = useState("");
+	const [email,setEmail] = useState("");
+	const [password,setPassword] = useState("");
+	const [emailError, setEmailError] = useState("");
+	const [passwordError, setPasswordError] = useState("");
+	const [hasAccount, setHasAccount] = useState("");
 
-class App extends Component {
-  state = {isSignedIn : false}
+	const clearInputs = () => {
+		setEmail("");
+		setPassword("");
+	}
+	const clearErrors = () => {
+		setEmailError("");
+		setPasswordError("");
+	}
+	const handleLogin = () =>{
+		clearErrors();
+		fire
+			.auth()
+			.signInWithEmailAndPassword(email,password)
+			.catch((err) => {
+				switch(err.code){
+					case "auth/invalid-email":
+					case "auth/user-disabled":
+					case "auth/user-not-found":
+						setEmailError(err.message);
+						break;
+					case "auth/wrong-password":
+						setPasswordError(err.message);
+						break;
+					default:
+						break;
 
-  uiConfig = {
+				}
+			});
+	};
+	const handleSignup = () =>{
+		clearErrors();
+		fire
+			.auth()
+			.createUserWithEmailAndPassword(email,password)
+			.catch((err) => {
+				switch(err.code){
+					case "auth/email-alraedy-in-use":
+					case "auth/invalid-email":
+						setEmailError(err.message);
+						break;
+					case "auth/weak-password":
+						setPasswordError(err.message);
+						break;
+					default:
+						setPassword(password);
+						setEmail(email);
+						break;
+			}
+			});
+	};
 
-    signInFlow: "popup",
-    signInOptions: [
-      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID
-    ],
-    callbacks: {
-      signInSuccess: () => false
-    }
-  }
+	
 
-  componentDidMount = () =>{
-    firebase.auth().onAuthStateChanged(user => {
-      this.setState({isSignedIn: !!user})
-      console.log("user",user)
-    })
-  }
-  render() {
-      return (
-        <div className = "App">
-          {this.state.isSignedIn ? (
-            <span>
-            <div>Signed In! </div>
-            <button onClick = {() => firebase.auth().signOut()} > Sign out! </button>
-            <h1> Welcome {firebase.auth().currentUser.displayName}</h1>
-            <img
-              alt ="profile picture"
-              src = {firebase.auth().currentUser.photoURL}
-              />
+	useEffect(() => {
+		const authListener = () => {
+		fire.auth().onAuthStateChanged(user=>{
+			if(user){
+				clearInputs();
+				setUser(user);
+			} else {
+				setUser("");
+			}
+		});
+	};
+		authListener();
+	},[]);
 
-            </span>
-          ) : (
+	return (
+		<div className = "App">
+			{user ? (
+				<Home/> 
+			):(	
+				<Login 
+				email = {email}
+				setEmail = {setEmail}
+				password = {password}
+				setPassword = {setPassword}
+				handleLogin = {handleLogin}
+				handleSignup = {handleSignup}
+				hasAccount = {hasAccount}
+				setHasAccount = {setHasAccount}
+				emailError = {emailError}
+				passwordError = {passwordError}
+			/>
+			)}
+		</div>
 
-            <StyledFireBaseAuth
-            uiConfig = {this.uiConfig}
-            firebaseAuth = {firebase.auth()}
-            />
-
-          )}
-
-          </div>
-      )
-  }
-}
+	);
+};
 
 export default App;
