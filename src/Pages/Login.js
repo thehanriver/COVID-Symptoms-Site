@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import StyledFireBaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import firebase from "firebase";
 import { Button } from "react-bootstrap";
-import { Link } from 'react-router-dom';
-
 
 firebase.initializeApp({
     apiKey: "AIzaSyBE-JpKqfubFYpOKX_sMNtaKLYGWS7gk5o",
@@ -43,16 +41,6 @@ firebase.initializeApp({
             <span>
             <h1 className = "text-x1 text-left font-bold"> Welcome {firebase.auth().currentUser.displayName}</h1>
             <div className = "text-x1 text-left"> Signed In! </div>
-            <h3 className = "font-bold"> Dashboard </h3>
-
-            <ul>
-              <Link className = "text-left" > Settings </Link>
-            </ul><ul>
-              <Link className = "text-left"> Symptom Tracker </Link>
-            </ul><ul>
-              <Link> Admin Dashboard </Link>
-            </ul>
-
             <div className = "text-right">
               <Button 
                variant = "outline-secondary"

@@ -13,6 +13,8 @@ const Navigation = (props) => {
 					<Nav.Link href ="/Home"> Home </Nav.Link>
 					<Nav.Link href ="/Login"> Login </Nav.Link>
 					<Nav.Link href = "/Survey"> Survey </Nav.Link>
+					<Nav.Link href ="/AdminDash"> Admin Dashboard </Nav.Link>
+					<Nav.Link href = "/Settings"> Settings </Nav.Link>
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>
