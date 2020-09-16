@@ -5,7 +5,6 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Survey from "./Pages/Survey";
 import AdminDash from "./Pages/AdminDash";
-import Settings from "./Pages/Settings";
 
 export default class Routes extends Component {
 	render() {
@@ -17,7 +16,6 @@ export default class Routes extends Component {
 				<Route path ="/Login" component ={Login}/>
 				<Route path ="/Survey" component ={Survey}/>
 				<Route path ="/AdminDash" component ={AdminDash}/>
-				<Route path = "/Settings" component = {Settings}/>
 			</Switch>
 			</Router>
 
