@@ -2,8 +2,8 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "engines":{
-      "node":"12.18.3"
+  "engines": {
+    "node": "12.18.3"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",

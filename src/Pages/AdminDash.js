@@ -24,7 +24,7 @@ export default class AdminDash extends Component {
           <p> Reported Symptoms Data Visualization </p>
           <iframe title = "Bar Graph" width="1008" height="622" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4aRX7-AdEJh3N8zZ5O_-U6-7PjL0D01pXw9lCXZYWg1BrwHRQBbYIw3vifPzPpCQrzeGbiC1L7Rn7/pubchart?oid=1422167781&amp;format=interactive"></iframe>
           <iframe title = "Pie Chart" width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4aRX7-AdEJh3N8zZ5O_-U6-7PjL0D01pXw9lCXZYWg1BrwHRQBbYIw3vifPzPpCQrzeGbiC1L7Rn7/pubchart?oid=1766034756&amp;format=interactive"></iframe>
-
+          <iframe title= "Raw Data" width = "1600" height= "600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQ4aRX7-AdEJh3N8zZ5O_-U6-7PjL0D01pXw9lCXZYWg1BrwHRQBbYIw3vifPzPpCQrzeGbiC1L7Rn7/pubhtml?gid=1247212366&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
       		</div>
 			)}
 		}
