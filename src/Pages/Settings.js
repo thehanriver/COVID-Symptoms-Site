@@ -1,22 +1,17 @@
 import React, { useState } from "react";
 import firebase from 'firebase';
 
+
 const PasswordReset = () => {
 
  	const [email, setEmail] = useState("");
 	const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
-	const [error, setError] = useState(null);
-	const [dispName, setDisplayName] = useState("");
-	const [displayNameChange, setDisplayNameChange] = useState(false);
-	const [dispErr, setdispError] = useState(null);
+	const [error, setError] = useState(null);	
 
 	const onChangeHandler = (event) => {
 	const {name,value} = event.currentTarget;
 		if(name === "userEmail"){
 			setEmail(value);
-		}
-		else if(name === "dispName"){
-			setDisplayName(value);
 		}
 
 	};
@@ -34,27 +29,7 @@ const PasswordReset = () => {
 		});
 	};
 
-	const resetDisplayName = (event) =>{
-		event.preventDefault();
-		setDisplayName(event.target.value);
-		
-		firebase.auth()
-		.onAuthStateChanged(currentUser => {
-		firebase.auth()
-		.currentUser
-		.updateProfile({
-			displayName : dispName
-		})
-		.then(() => {
-			setDisplayNameChange(true);
-			setTimeout(()=>{setDisplayNameChange(false)},3000);
-		})
-		.catch(()=>{
-		setdispError("Error changing Display Name");
-		});
-		})
-	};
-
+	
 	return (	
 			<div className="Settings">
           		<h1>Settings</h1>
@@ -84,30 +59,7 @@ const PasswordReset = () => {
 								 Send me a reset link</button>
 						</form>
 					</div>
-					<div>
-						<h2>Change your display name </h2>
-						<form action ="">
-							{displayNameChange && (<div>Display Name changed!</div>)}
-								{dispErr !== null && (<div>{dispErr}</div>)}
-									<label htmlFor ="displayName" className ="w-full block">
-										Display Name: 
-										</label>
-
-								<input
-									type ="dispName"
-									name= "dispName"
-									id="dispName"
-									value={dispName}
-									placeholder="Input your name"
-									onChange ={event => {onChangeHandler(event)}}
-								/>
-								<button
-									onClick = {event => {resetDisplayName(event);						
-									}}
-								>
-								 Change my display name</button>
-						</form>
-					</div>
+					
       		</div>
 			);
 		

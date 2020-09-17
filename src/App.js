@@ -1,5 +1,4 @@
 import React from "react";
-//import './App.css';
 import Routes from "./Routes";
 import Navigation from "./Components/Nav";
 import Cards from "./Components/Cards/Cards"
@@ -27,9 +26,11 @@ class App extends React.Component{
 				<Cards data = {data} />
 				<Chart  />
 			</div>
-		);
+		)
 	}
 }
+	
+
 
 
 export default App;

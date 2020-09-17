@@ -13,8 +13,9 @@ firebase.initializeApp({
     appId: "1:503489561455:web:aae8295783598933501e9a"
 })
 
+
  class Login extends Component {
-  state = {isSignedIn : false}
+  state = {isSignedIn : false,load : false}
 
   uiConfig = {
 
@@ -30,22 +31,25 @@ firebase.initializeApp({
 
   componentDidMount = () =>{
     firebase.auth().onAuthStateChanged(user => {
-      this.setState({isSignedIn: !!user})
+      this.setState({isSignedIn: !!user,
+        load: true})
       console.log("user",user)
     })
   }
   render() {
       return (
-        <div className = "App">
-          {this.state.isSignedIn ? (
+        <div className = "Login">
+          {(this.state.isSignedIn && this.state.load)? (
             <span>
-            <h1 className = "text-x1 text-left font-bold"> Welcome {firebase.auth().currentUser.displayName}</h1>
-            <div className = "text-x1 text-left"> Signed In! </div>
+            <h1 className = "text-x1 text-left font-bold"> Signed In!</h1>
             <div className = "text-right">
               <Button 
                variant = "outline-secondary"
                float = "btn pull-right"
-               onClick = {() => firebase.auth().signOut()} > Sign out! </Button> 
+               onClick = {() => firebase.auth().signOut()} 
+
+               > Sign out! </Button>
+
             </div>
             </span>
           ) : (
@@ -53,7 +57,7 @@ firebase.initializeApp({
             uiConfig = {this.uiConfig}
             firebaseAuth = {firebase.auth()}
             />
-
+               
           )}
 
           </div>
