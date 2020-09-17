@@ -36,14 +36,17 @@ Additionally, this website has a survey component which records the users email 
 In this case, a web app was chosen since there is ample documentation regarding the development of nodeJS web applications using react. Firebase was used was used for similar reasons and due to the fact that it is free to use. All components in the development of this application were chosen for their ease of use and solid documentation. This design philosophy allowed for the easy implementation of a pleasing user interface with minimal headaches. A good example of this is the API implementation. The cards, counting animation, and graph are all imported packages and the bulk of the code is taken directly from the YouTube video referenced above. This resulted in fast development of a professional-looking home page. 
 
 
-
 **Test Cases:**
 1. Signing in using google account:pass
 2. singing in using other email: pass
 3. Signing in using "Admin" credentials: pass
-4. Resetting password: pass
+4. Resetting password via noreply email: pass
 5. Joining the website from various desktop browsers: pass
-6. Joining website from mobile browsers: fail
+6. Signing in with wrong credentials and asked to create an account: pass
+7. Non-admins redirected to non-admin page upon clicking admin dashboard: pass
+8. Changing display name of user: pass
+9. Redirecting anonymous users to login page: pass
+10. Joining website from mobile browsers: fail
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
