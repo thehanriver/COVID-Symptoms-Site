@@ -15,7 +15,7 @@ firebase.initializeApp({
 
 
  class Login extends Component {
-  state = {isSignedIn : false,load : false,check:false,displayName:null}
+  state = {isSignedIn : false,load : false,check:false}
 
   uiConfig = {
 
@@ -44,8 +44,7 @@ firebase.initializeApp({
         <div className = "Login">
           {(this.state.isSignedIn && this.state.load )? (
             <span>
-            <h1 className = "text-x1 text-left font-bold"> Signed In!</h1>
-            
+            <h1 className = "text-x1 text-left font-bold"> Signed In! </h1>
             <div className = "text-right">
               <Button 
                variant = "outline-secondary"
