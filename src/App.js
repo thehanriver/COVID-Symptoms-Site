@@ -6,6 +6,12 @@ import Chart from "./Components/Chart/Chart"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styles from './App.module.css'
 import {fetchData} from "./api";
+var compression = require('compression');
+var helmet = require('helmet');
+
+app.use(compression());
+app.use(helmet());
+
 
 class App extends React.Component{
 	state ={
