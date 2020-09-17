@@ -10,8 +10,8 @@ If the app is not running at the URL, please see the instructions below on how t
 1. Click on the "Login" section of the Navigation bar 
 2. Click on the "Sign in with Google" button
 3. when prompted, enter the following credentials:
-  Username: MarioArnaudDesign@gmail.com
-  Password: @dminUser1234
+   Username: MarioArnaudDesign@gmail.com
+   Password: @dminUser1234
 4. Once successfully signed in, click on the "Admin Dashboard" 
    section of the navigation bar
 5. you should now be able to view graphs of the survey results as well 
@@ -26,21 +26,24 @@ If the app is not running at the URL, please see the instructions below on how t
 5. Once the npm start command is run, the web app will be running on  [http://localhost:3000](http://localhost:3000)
 
 
-**Test Cases:**
-Signing in using google account:pass
-singing in using other email: pass
-Signing in using "Admin" credentials: pass
-Resetting password: pass
-Joining the website from various desktop browsers: pass
-Joining website from mobile browsers: fail
-
-
 **About the App**
 
-This is a web app that allows a user to view live statistics about the COVID-19 pandemic including number of cases, deaths, and recovered patients worldwide. These statistics are provided by: https://github.com/mathdroid/covid-19-api and formatted using code modeled closely after this resource: https://www.youtube.com/watch?v=khJlrj3Y6Ls&start=27s&ab_channel=JavaScriptMastery
+This is a web app that allows a user to view live statistics about the COVID-19 pandemic including number of cases, deaths, and recovered patients worldwide. These 
+statistics are provided by: https://github.com/mathdroid/covid-19-api and formatted using code modeled closely after this resource: https://www.youtube.com/watch?v=khJlrj3Y6Ls&start=27s&ab_channel=JavaScriptMastery
 
-Additionally, this website has a survey component which records the users email and asks a series of questions in order to screen for commonly reported symptoms of COVID-19. This was done by using a google forms which was then embedded into the webpage. The data gathered by the survey is then recorded in a google sheets document where it is aggregated and displayed in two different graphs. These graphs, along with the raw data table were also embedded in the webpage and availble for viewing in the Admin Dashboard. 
+Additionally, this website has a survey component which records the users email and asks a series of questions in order to screen for commonly reported symptoms of COVID-19. This was done by using a google forms which was then embedded into the webpage. The data gathered by the survey is then recorded in a google sheets document where it is aggregated and displayed in two different graphs. These graphs, along with the raw data table were also embedded in the webpage and availble for viewing in the Admin Dashboard. The Admin Dashboard is only able to be viewed if the user signs in using the Admin credentials in the above instructions. All other users will be treated as non-admin users and are only able to take the survey. If a user wishes to be added as an Admin, they must contact one of the project managers (hanmario@bu.edu) in order to be authenticated as an Admin. 
 
+In this case, a web app was chosen since there is ample documentation regarding the development of nodeJS web applications using react. Firebase was used was used for similar reasons and due to the fact that it is free to use. All components in the development of this application were chosen for their ease of use and solid documentation. This design philosophy allowed for the easy implementation of a pleasing user interface with minimal headaches. A good example of this is the API implementation. The cards, counting animation, and graph are all imported packages and the bulk of the code is taken directly from the YouTube video referenced above. This resulted in fast development of a professional-looking home page. 
+
+
+
+**Test Cases:**
+1. Signing in using google account:pass
+2. singing in using other email: pass
+3. Signing in using "Admin" credentials: pass
+4. Resetting password: pass
+5. Joining the website from various desktop browsers: pass
+6. Joining website from mobile browsers: fail
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
