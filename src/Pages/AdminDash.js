@@ -6,7 +6,8 @@ export default class AdminDash extends Component {
 	componentWillMount() {
 	var uid = firebase.auth().currentUser.uid;
  	var admin = "ZK7kPbhLcXUs3tO8rVDdzNbt9CD2";
- 	if(admin === uid){
+ 	var ad2 = "zQDdLLGlTxMt7pNmIL5ZExTFEU73";
+ 	if((admin === uid|| ad2 === uid)){
  		this.setState({check:true});
  	}else{
  		this.setState({check:false});
