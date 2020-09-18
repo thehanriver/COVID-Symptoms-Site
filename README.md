@@ -27,6 +27,7 @@ If the app is not running at the URL, please see the instructions below on how t
 
 
 **About the App**
+This app is developed by Mario Han and Arnaud Harmange as team SW21
 
 This is a web app that allows a user to view live statistics about the COVID-19 pandemic including number of cases, deaths, and recovered patients worldwide. These 
 statistics are provided by: https://github.com/mathdroid/covid-19-api and formatted using code modeled closely after this resource: https://www.youtube.com/watch?v=khJlrj3Y6Ls&start=27s&ab_channel=JavaScriptMastery
