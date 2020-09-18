@@ -27,6 +27,7 @@ If the app is not running at the URL, please see the instructions below on how t
 
 
 **About the App**
+
 This app is developed by Mario Han and Arnaud Harmange as team SW21
 
 This is a web app that allows a user to view live statistics about the COVID-19 pandemic including number of cases, deaths, and recovered patients worldwide. These 
